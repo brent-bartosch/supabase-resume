@@ -233,58 +233,107 @@ export default function LeadsPage() {
 
   return (
     <main className="min-h-screen bg-gray-50">
-      {/* Header */}
-      <header className="bg-white border-b border-gray-200 sticky top-0 z-10">
-        <div className="max-w-7xl mx-auto px-6 py-4">
-          <div className="flex items-center justify-between">
-            <div>
-              <h1 className="text-xl font-bold">Lead Scoring Dashboard</h1>
-              <p className="text-sm text-gray-500">
-                Developer signups prioritized for enterprise expansion
+      {/* Hero Section */}
+      <div className="bg-gradient-to-br from-emerald-600 to-emerald-800 text-white">
+        <div className="max-w-7xl mx-auto px-6 py-12 md:py-16">
+          <div className="flex items-center justify-between mb-6">
+            <div className="flex items-center gap-2 text-emerald-200 text-sm">
+              <svg className="w-4 h-4" fill="currentColor" viewBox="0 0 24 24">
+                <path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"></path>
+              </svg>
+              Powered by Supabase
+            </div>
+            <Link href="/" className="text-emerald-200 hover:text-white text-sm no-underline">
+              View Resume →
+            </Link>
+          </div>
+
+          <h1 className="text-3xl md:text-4xl font-bold mb-4">
+            Which Developer Signups Are Ready for Enterprise?
+          </h1>
+
+          <p className="text-xl text-emerald-100 mb-6 max-w-3xl">
+            Supabase gets thousands of developer signups weekly. This tool identifies which ones
+            have enterprise expansion potential—so you know exactly who to call and why.
+          </p>
+
+          <div className="grid md:grid-cols-3 gap-6 mt-8">
+            <div className="bg-white/10 rounded-lg p-4">
+              <div className="text-2xl font-bold">Internal Signals</div>
+              <p className="text-emerald-200 text-sm mt-1">
+                Usage patterns, feature adoption, billing tier, team growth, API volume
               </p>
             </div>
-            <div className="flex items-center gap-4">
-              <Link
-                href="/"
-                className="text-sm text-gray-500 hover:text-gray-700 no-underline"
-              >
-                ← Back to Resume
-              </Link>
+            <div className="bg-white/10 rounded-lg p-4">
+              <div className="text-2xl font-bold">External Enrichment</div>
+              <p className="text-emerald-200 text-sm mt-1">
+                Company size, funding, stakeholders, hiring signals, tech stack
+              </p>
+            </div>
+            <div className="bg-white/10 rounded-lg p-4">
+              <div className="text-2xl font-bold">Prioritized Output</div>
+              <p className="text-emerald-200 text-sm mt-1">
+                Scored leads with tier assignment and suggested next action
+              </p>
             </div>
           </div>
         </div>
-      </header>
+      </div>
+
+      {/* Why This Exists */}
+      <div className="bg-white border-b border-gray-200">
+        <div className="max-w-7xl mx-auto px-6 py-6">
+          <div className="flex flex-col md:flex-row md:items-center md:justify-between gap-4">
+            <div>
+              <h2 className="font-semibold text-gray-900">Why I Built This</h2>
+              <p className="text-gray-600 text-sm">
+                The Enterprise AE job description mentions &quot;thousands of developers signing up every week from large enterprises.&quot;
+                This is the tool I&apos;d want on day 1 to prioritize that pipeline.
+              </p>
+            </div>
+            <div className="flex gap-3">
+              <Link
+                href="/sql"
+                className="px-4 py-2 bg-gray-100 hover:bg-gray-200 rounded-lg text-sm font-medium text-gray-700 no-underline whitespace-nowrap"
+              >
+                View Schema
+              </Link>
+              <a
+                href="https://github.com/brent-bartosch/supabase-resume"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="px-4 py-2 bg-gray-900 hover:bg-gray-800 rounded-lg text-sm font-medium text-white no-underline whitespace-nowrap"
+              >
+                GitHub
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
 
       <div className="max-w-7xl mx-auto px-6 py-8">
         {/* Stats Row */}
-        <div className="grid grid-cols-4 gap-4 mb-8">
+        <div className="grid grid-cols-2 md:grid-cols-4 gap-4 mb-8">
           <div className="bg-white rounded-lg border border-gray-200 p-4">
             <div className="text-2xl font-bold text-red-600">{hotLeads.length}</div>
             <div className="text-sm text-gray-500">Hot Leads</div>
+            <div className="text-xs text-gray-400 mt-1">Ready for outreach</div>
           </div>
           <div className="bg-white rounded-lg border border-gray-200 p-4">
             <div className="text-2xl font-bold text-orange-600">{warmLeads.length}</div>
             <div className="text-sm text-gray-500">Warm Leads</div>
+            <div className="text-xs text-gray-400 mt-1">Developing potential</div>
           </div>
           <div className="bg-white rounded-lg border border-gray-200 p-4">
             <div className="text-2xl font-bold text-blue-600">{nurtureLeads.length}</div>
             <div className="text-sm text-gray-500">Nurture</div>
+            <div className="text-xs text-gray-400 mt-1">Check back later</div>
           </div>
           <div className="bg-white rounded-lg border border-gray-200 p-4">
             <div className="text-2xl font-bold text-gray-600">{mockLeads.length}</div>
             <div className="text-sm text-gray-500">Total Leads</div>
+            <div className="text-xs text-gray-400 mt-1">Sample dataset</div>
           </div>
-        </div>
-
-        {/* Concept Explanation */}
-        <div className="bg-emerald-50 border border-emerald-200 rounded-lg p-4 mb-8">
-          <h2 className="font-semibold text-emerald-900 mb-2">How This Works</h2>
-          <p className="text-sm text-emerald-800">
-            This dashboard prioritizes developer signups for enterprise expansion. It combines{" "}
-            <strong>internal signals</strong> (usage patterns, feature adoption, team growth) with{" "}
-            <strong>external enrichment</strong> (company size, funding, hiring signals) to score
-            and rank leads. Built on Supabase with the same patterns I use in production.
-          </p>
         </div>
 
         {/* Lead Cards */}
